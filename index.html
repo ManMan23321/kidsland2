@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KidsLand / ქიდსლენდი — ბავშვის დაბადების დღე გორში</title>
+  <meta name="description" content="Kidsland / ქიდსლენდი — გორი. დაბადებისდღეები, ანიმატორები, ფოტო სერვისი (შაკო სვანიძე). დაჯავშნა: 598 881 919.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/404460299_846809973994906_1401947253048668434_n.jpg" alt="Kidsland Logo">
+        <div class="brand">KidsLand / ქიდსლენდი</div>
+      </div>
+      <nav class="nav">
+        <a href="#gallery">გალერეა</a>
+        <a href="#events">მიმდინარე აქციები</a>
+        <a href="booking.html">დაჯავშნა</a>
+        <a href="#contact">კონტაქტი</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>KidsLand / ქიდსლენდი</h1>
+        <p class="lead">სამყარო, სადაც შეიგრძნობ სიხარულს.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="booking.html">დაჯავშნე ახლა</a>
+        </div>
+        <p class="contact-line">საკონტაქტო: <strong>598 881 919</strong> • 
+        <a href="mailto:kidslandgori@gmail.com">kidslandgori@gmail.com</a></p>
+      </div>
+      <div class="hero-image">
+        <img src="assets/A_website_homepage_design_for_Kidsland,_styled_as_.png" alt="Kidsland mockup">
+      </div>
+    </div>
+
+    <div class="home-buttons">
+      <button class="btn big" onclick="openPopup('heroesPopup')">გმირები</button>
+      <button class="btn big" onclick="openPopup('foodsPopup')">მენიუ</button>
+    </div>
+  </section>
+
+  <!-- POPUPS -->
+  <div id="heroesPopup" class="popup" onclick="closePopup('heroesPopup')">
+    <span class="close" onclick="event.stopPropagation(); closePopup('heroesPopup')">&times;</span>
+    <img src="assets/heroes.jpg" class="popup-img" alt="Heroes">
+  </div>
+
+  <div id="foodsPopup" class="popup" onclick="closePopup('foodsPopup')">
+    <span class="close" onclick="event.stopPropagation(); closePopup('foodsPopup')">&times;</span>
+    <img src="assets/foodmenuprices.jpg" class="popup-img" alt="Food menu">
+  </div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <h2>გალერეა: ფოტოგრაფი შაკო სვანიძე</h2>
+      <p class="muted">დაბადებისდღეები, გმირები, გართობა.</p>
+      <div class="grid">
+        <div class="card"><img src="assets/roblox.jpg" alt="photo1"><div class="caption">დაბადების დღე ქიდსლენდში</div></div>
+        <div class="card"><img src="assets/საპნის.JPG" alt="photo2"><div class="caption">საპნის ბუშტების წვიმა</div></div>
+        <div class="card"><img src="assets/ვარსკვლავი.JPG" alt="photo3"><div class="caption">ვარსკვლავის გახსნა</div></div>
+        <div class="card"><img src="assets/მაჯლოტოო.JPG" alt="photo4"><div class="caption">საშიში თამაში "მაჯლაჯუნა"</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="section events">
+    <div class="container">
+      <h2>მიმდინარე აქციები</h2>
+      <ul class="events-list">
+        <li><a class="small" href="booking.html"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>დაგვიკავშირდით</h2>
+      <p>მისამართი: ქ.გორი ქუთაისის ქ.#24, Gori, Georgia, 1400</p>
+      <p>ტელ.: <a href="tel:+995598881919">598 881 919</a></p>
+      <p>WhatsApp: <a href="https://wa.me/995598881919?text=გამარჯობა,%20მინდა%20დაჯავშნა" target="_blank">გაგზავნე მესიჯი</a></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> KidsLand / ქიდსლენდი • ყველა უფლება დაცულია</div>
+      <div class="socials">
+        <a href="https://www.facebook.com/kidslandchildworld" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>  
+        <a href="https://www.instagram.com/kidsland.teenland/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>  
+        <a href="https://www.tiktok.com/@kidsland_events" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

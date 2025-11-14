@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>დაჯავშნა • KidsLand</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* small extra styles local to form */
+    .submit-btn {
+      width:100%;
+      margin-top:16px;
+      padding:14px;
+      font-size:18px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(90deg,#ff6b6b,#ff8b8b);
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .section.book .container { max-width:980px; }
+    hr { border:0; border-top:1px dashed rgba(0,0,0,0.06); margin:18px 0; }
+    h3 { margin-top:18px; }
+    .checkboxes { max-height:280px; overflow:auto; padding-right:8px; }
+    .checkboxes label { display:block; margin:6px 0; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <img src="assets/404460299_846809973994906_1401947253048668434_n.jpg" alt="KidsLand logo">
+      <div class="brand">KidsLand / ქიდსლენდი</div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">მთავარი</a>
+      <a href="index.html#gallery">გალერეა</a>
+      <a href="index.html#events">აქციები</a>
+      <a href="booking.html">დაჯავშნა</a>
+      <a href="index.html#contact">კონტაქტი</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section book">
+  <div class="container">
+    <h2>დაჯავშნა</h2>
+    <p class="muted">აირჩიე გმირები, მენიუ და შეავსე დეტალები. შემდეგ დააჭირე “გაგზავნა”.</p>
+
+    <!-- GET -> booking-success.html (no backend) -->
+    <form id="bookingForm" class="form" action="booking-success.html" method="GET" autocomplete="off">
+
+      <div class="field">
+        <label>ღონისძიების სახელი</label>
+        <input type="text" name="event_name" required>
+      </div>
+
+      <div class="field">
+        <label>ბავშვის სახელი და ასაკი</label>
+        <input type="text" name="child_info" required>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>თარიღი</label>
+          <input type="date" name="date" required>
+        </div>
+        <div class="field">
+          <label>დასაწყისი დრო</label>
+          <input type="time" name="time" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>ხანგრძლობა</label>
+          <select name="duration">
+            <option>2 საათი</option>
+            <option>3 საათი</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>რაოდენობა (ბავშვები)</label>
+          <input type="number" name="count" min="1" value="10" required>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- HEROES: use name heroes[] so multiple values are passed -->
+      <h3>✨ ზღაპრის და მულტფილმის გმირები</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="heroes[]" value="მიკი მაუსი"> მიკი მაუსი</label>
+        <label><input type="checkbox" name="heroes[]" value="მინი მაუსი"> მინი მაუსი</label>
+        <label><input type="checkbox" name="heroes[]" value="დონალდ დაკი"> დონალდ დაკი</label>
+        <label><input type="checkbox" name="heroes[]" value="Funcionario გუფი"> გუფი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჟირაფი"> ჟირაფი</label>
+        <label><input type="checkbox" name="heroes[]" value="ტომი"> ტომი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჯერი"> ჯერი</label>
+        <label><input type="checkbox" name="heroes[]" value="ტროლი გოგო"> ტროლი გოგო</label>
+        <label><input type="checkbox" name="heroes[]" value="ტროლი ბიჭი"> ტროლი ბიჭი</label>
+        <label><input type="checkbox" name="heroes[]" value="პეპა გოჭი"> პეპა გოჭი</label>
+        <label><input type="checkbox" name="heroes[]" value="ლოლი"> ლოლი</label>
+        <label><input type="checkbox" name="heroes[]" value="ოთხფეხა პონი"> ოთხფეხა პონი</label>
+        <label><input type="checkbox" name="heroes[]" value="ვარდისფერი პონი"> ვარდისფერი პონი</label>
+        <label><input type="checkbox" name="heroes[]" value="იასამნისფერი პონი"> იასამნისფერი პონი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჰელოუ ქითი"> ჰელოუ ქითი</label>
+        <label><input type="checkbox" name="heroes[]" value="ქრაი ბეიბი"> ქრაი ბეიბი</label>
+        <label><input type="checkbox" name="heroes[]" value="სპანჯბობი"> სპანჯბობი</label>
+        <label><input type="checkbox" name="heroes[]" value="მინიონი"> მინიონი</label>
+        <label><input type="checkbox" name="heroes[]" value="ოლაფი"> ოლაფი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჯამბაზები"> ჯამბაზები</label>
+        <label><input type="checkbox" name="heroes[]" value="ცირკი"> ცირკი</label>
+        <label><input type="checkbox" name="heroes[]" value="სონიკი"> სონიკი</label>
+        <label><input type="checkbox" name="heroes[]" value="ელვა მაქვინი"> ელვა მაქვინი</label>
+        <label><input type="checkbox" name="heroes[]" value="სტიჩი"> სტიჩი</label>
+        <label><input type="checkbox" name="heroes[]" value="პეპი"> პეპი</label>
+        <label><input type="checkbox" name="heroes[]" value="მერი პოპინსი"> მერი პოპინსი</label>
+        <label><input type="checkbox" name="heroes[]" value="კოსმონავტი"> კოსმონავტი</label>
+        <label><input type="checkbox" name="heroes[]" value="ბაჭია"> ბაჭია</label>
+        <label><input type="checkbox" name="heroes[]" value="ენკანტო - ბრუნო"> ენკანტო: ბრუნო</label>
+        <label><input type="checkbox" name="heroes[]" value="ენკანტო - იზაბელა"> ენკანტო: იზაბელა</label>
+        <label><input type="checkbox" name="heroes[]" value="ენკანტო - მირაბელი"> ენკანტო: მირაბელი</label>
+      </div>
+
+      <h3>🦸 გმირები და სუპერგმირები</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="heroes[]" value="ნარუტო"> ნარუტო</label>
+        <label><input type="checkbox" name="heroes[]" value="სარკის არსება"> სარკის არსება</label>
+        <label><input type="checkbox" name="heroes[]" value="მანათობელი ფრთები"> მანათობელი ფრთები</label>
+        <label><input type="checkbox" name="heroes[]" value="ადამიანი ლაზერი"> ადამიანი ლაზერი</label>
+        <label><input type="checkbox" name="heroes[]" value="დიდი ტედი"> დიდი ტედი</label>
+        <label><input type="checkbox" name="heroes[]" value="პანდა"> პანდა</label>
+        <label><input type="checkbox" name="heroes[]" value="ოპტიმუს პრაიმი"> ოპტიმუს პრაიმი</label>
+        <label><input type="checkbox" name="heroes[]" value="ბამბლ ბი"> ბამბლ ბი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჯეკ ბეღურა"> ჯეკ ბეღურა</label>
+        <label><input type="checkbox" name="heroes[]" value="ჯინი"> ჯინი</label>
+        <label><input type="checkbox" name="heroes[]" value="ბეტმენი"> ბეტმენი</label>
+        <label><input type="checkbox" name="heroes[]" value="გოგო ბეტმენი"> გოგო ბეტმენი</label>
+        <label><input type="checkbox" name="heroes[]" value="სუპერმენი"> სუპერმენი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჯოკერი"> ჯოკერი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჰარლი ქვინი"> ჰარლი ქვინი</label>
+        <label><input type="checkbox" name="heroes[]" value="ჰალკი"> ჰალკი</label>
+        <label><input type="checkbox" name="heroes[]" value="წითელი ადამიანი ობობა"> წითელი ადამიანი ობობა</label>
+        <label><input type="checkbox" name="heroes[]" value="ლურჯი ადამიანი ობობა"> ლურჯი ადამიანი ობობა</label>
+        <label><input type="checkbox" name="heroes[]" value="შავი ადამიანი ობობა"> შავი ადამიანი ობობა</label>
+        <label><input type="checkbox" name="heroes[]" value="გოგო ობობა"> გოგო ობობა</label>
+        <label><input type="checkbox" name="heroes[]" value="რკინის კაცი"> რკინის კაცი</label>
+        <label><input type="checkbox" name="heroes[]" value="კაპიტანი ამერიკა"> კაპიტანი ამერიკა</label>
+        <label><input type="checkbox" name="heroes[]" value="თორი"> თორი</label>
+        <label><input type="checkbox" name="heroes[]" value="გაბერილი ნეონ-კაცი"> გაბერილი ნეონ-კაცი</label>
+        <label><input type="checkbox" name="heroes[]" value="თეთრი დათვი"> თეთრი დათვი</label>
+        <label><input type="checkbox" name="heroes[]" value="ვარდისფერი დათვი"> ვარდისფერი დათვი</label>
+        <label><input type="checkbox" name="heroes[]" value="რობლოქსი"> რობლოქსი</label>
+        <label><input type="checkbox" name="heroes[]" value="ბრაულსთარსის ლეონი"> ბრაულსთარსის ლეონი</label>
+      </div>
+
+      <h3>👻 კეთილი და საშიში გმირები</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="heroes[]" value="სანტა"> სანტა</label>
+        <label><input type="checkbox" name="heroes[]" value="ქართული თოვლის პაპა"> ქართველი თოვლის პაპა</label>
+        <label><input type="checkbox" name="heroes[]" value="ნაძვის ხეები"> ნაძვის ხეები</label>
+        <label><input type="checkbox" name="heroes[]" value="სანტას გოგონა"> სანტას გოგონა</label>
+        <label><input type="checkbox" name="heroes[]" value="ელფი"> ელფი</label>
+        <label><input type="checkbox" name="heroes[]" value="გრინჩი"> გრინჩი</label>
+        <label><input type="checkbox" name="heroes[]" value="ქრინი"> ქრინი</label>
+        <label><input type="checkbox" name="heroes[]" value="თოვლის გუნდა"> თოვლის გუნდა</label>
+        <label><input type="checkbox" name="heroes[]" value="ჰარი პოტერი"> ჰარი პოტერი</label>
+        <label><input type="checkbox" name="heroes[]" value="მაკაკა"> მაკაკა</label>
+        <label><input type="checkbox" name="heroes[]" value="დინოზავრი"> დინოზავრი</label>
+        <label><input type="checkbox" name="heroes[]" value="კოვბოი დინოზავრზე"> კოვბოი დინოზავრზე</label>
+        <label><input type="checkbox" name="heroes[]" value="ვენსდეი"> ვენსდეი</label>
+        <label><input type="checkbox" name="heroes[]" value="ადამსების ოჯახი"> ადამსების ოჯახი</label>
+        <label><input type="checkbox" name="heroes[]" value="ქაღალდის სახლი"> ქაღალდის სახლი</label>
+        <label><input type="checkbox" name="heroes[]" value="მისტიური მცველები"> მისტიური მცველები</label>
+        <label><input type="checkbox" name="heroes[]" value="ფიფქიას დედინაცვალი"> ფიფქიას დედინაცვალი</label>
+        <label><input type="checkbox" name="heroes[]" value="მალეფისენტა"> მალეფისენტა</label>
+        <label><input type="checkbox" name="heroes[]" value="უცხოპლანეტელი"> უცხოპლანეტელი</label>
+        <label><input type="checkbox" name="heroes[]" value="მაჯლაჯუნა"> მაჯლაჯუნა</label>
+        <label><input type="checkbox" name="heroes[]" value="ანგელოზი"> ანგელოზი</label>
+      </div>
+
+      <h3>👑 პრინცესული და ბარბული გმირები</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="heroes[]" value="ბელი"> ბელი</label>
+        <label><input type="checkbox" name="heroes[]" value="კონკია"> კონკია</label>
+        <label><input type="checkbox" name="heroes[]" value="ფიფქია"> ფიფქია</label>
+        <label><input type="checkbox" name="heroes[]" value="ელზა"> ელზა</label>
+        <label><input type="checkbox" name="heroes[]" value="ანა"> ანა</label>
+        <label><input type="checkbox" name="heroes[]" value="რაპუნცელი"> რაპუნცელი</label>
+        <label><input type="checkbox" name="heroes[]" value="ალიბა"> ალიბა</label>
+        <label><input type="checkbox" name="heroes[]" value="ჟასმინი"> ჟასმინი</label>
+        <label><input type="checkbox" name="heroes[]" value="პრინცი"> პრინცი</label>
+        <label><input type="checkbox" name="heroes[]" value="ფერია"> ფერია</label>
+        <label><input type="checkbox" name="heroes[]" value="სპორტული ბარბი"> სპორტული ბარბი</label>
+        <label><input type="checkbox" name="heroes[]" value="კეკლუცი ბარბი"> კეკლუცი ბარბი</label>
+        <label><input type="checkbox" name="heroes[]" value="ბარბი ჯინსებში"> ბარბი ჯინსებში</label>
+        <label><input type="checkbox" name="heroes[]" value="კენი"> კენი</label>
+      </div>
+
+      <hr>
+
+      <!-- FOOD -->
+      <h3>🍽️ საკვები (მენიუ)</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="foods[]" value="პიცა საფირმო — 19₾"> პიცა საფირმო — 19₾</label>
+        <label><input type="checkbox" name="foods[]" value="პიცა პეპერონი — 21₾"> პიცა პეპერონი — 21₾</label>
+        <label><input type="checkbox" name="foods[]" value="პიცა სამარხვო — 14₾"> პიცა სამარხვო — 14₾</label>
+        <label><input type="checkbox" name="foods[]" value="ლობიანი — 12₾"> ლობიანი — 12₾</label>
+        <label><input type="checkbox" name="foods[]" value="ხაჭაპური — 14₾"> ხაჭაპური — 14₾</label>
+        <label><input type="checkbox" name="foods[]" value="კარტოფილი ფრი — 8₾"> კარტოფილი ფრი — 8₾</label>
+        <label><input type="checkbox" name="foods[]" value="კარტოფილი მექსიკური — 12₾"> კარტოფილი მექსიკური — 12₾</label>
+        <label><input type="checkbox" name="foods[]" value="ქათმის ფილეს მწვადი — 13₾"> ქათმის ფილეს მწვადი — 13₾</label>
+        <label><input type="checkbox" name="foods[]" value="სალათი ცეზარი — 19₾"> სალათი ცეზარი — 19₾</label>
+        <label><input type="checkbox" name="foods[]" value="სალათი ბერძნული — 15₾"> სალათი ბერძნული — 15₾</label>
+        <label><input type="checkbox" name="foods[]" value="კიტრი-პომიდვრის სალათი (ნიგვზით) — 14₾"> კიტრი-პომიდვრის სალათი ნიგვზით — 14₾</label>
+        <label><input type="checkbox" name="foods[]" value="ხორცის ბლინი — 2₾"> ხორცის ბლინი — 2₾</label>
+        <label><input type="checkbox" name="foods[]" value="ხილის ასორტი — 25₾"> ხილის ასორტი — 25₾</label>
+      </div>
+
+      <h3>🥤 სასმელები</h3>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="drinks[]" value="ყავა ხსნადი — 3₾"> ყავა ხსნადი — 3₾</label>
+        <label><input type="checkbox" name="drinks[]" value="ყავა თურქული — 2₾"> ყავა თურქული — 2₾</label>
+        <label><input type="checkbox" name="drinks[]" value="ჩაი — 2₾"> ჩაი — 2₾</label>
+        <label><input type="checkbox" name="drinks[]" value="ფანტა 0.5 ლ — 2₾"> ფანტა 0.5 ლ — 2₾</label>
+        <label><input type="checkbox" name="drinks[]" value="კოკა-კოლა 0.5 ლ — 2₾"> კოკა-კოლა 0.5 ლ — 2₾</label>
+        <label><input type="checkbox" name="drinks[]" value="კოკა-კოლა 1.5 ლ — 5₾"> კოკა-კოლა 1.5 ლ — 5₾</label>
+        <label><input type="checkbox" name="drinks[]" value="კოკა-კოლა 2 ლ — 6₾"> კოკა-კოლა 2 ლ — 6₾</label>
+        <label><input type="checkbox" name="drinks[]" value="პეპსი 2 ლ — 6₾"> პეპსი 2 ლ — 6₾</label>
+      </div>
+
+      <div class="field">
+        <label>კომენტარი / სურვილები</label>
+        <textarea name="notes" rows="3"></textarea>
+      </div>
+
+      <div class="field">
+        <label>თქვენი ტელეფონის ნომერი (WhatsApp/Viber)</label>
+        <input type="tel" name="phone" placeholder="+995 5XX XXXXXX" required>
+      </div>
+
+      <button class="submit-btn" type="submit">დაჯავშნა</button>
+
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">© <span id="year"></span> KidsLand / ქიდსლენდი</div>
+</footer>
+
+<script>
+  // small year auto
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

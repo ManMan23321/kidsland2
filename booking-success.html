@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>დაჯავშნა მიღებულია • KidsLand</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* full-screen centered kidsland success */
+    body {
+      margin:0;
+      font-family:"Poppins",system-ui,sans-serif;
+      background: linear-gradient(180deg,#f0fbff 0%, #fff8f0 100%);
+      color:#073045;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:30px;
+    }
+    .card {
+      width:100%;
+      max-width:900px;
+      background:white;
+      border-radius:18px;
+      box-shadow:0 20px 60px rgba(3,16,30,0.12);
+      padding:28px;
+      text-align:center;
+    }
+    .check {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:110px;
+      height:110px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#3df58f,#2bc07b);
+      color:white;
+      font-size:56px;
+      margin:0 auto 12px auto;
+      box-shadow:0 10px 30px rgba(45,180,120,0.18);
+    }
+    h1 { margin:6px 0 8px; font-size:24px; color:var(--primary); }
+    p.lead { margin:0 0 18px; color:#264653; opacity:0.9; }
+    .summary {
+      text-align:left;
+      background:linear-gradient(180deg,#fff,#f7fffb);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.04);
+      margin-bottom:16px;
+      max-height:420px;
+      overflow:auto;
+    }
+    .summary h4 { margin:0 0 6px; color:#333; }
+    .summary p, .summary li { margin:6px 0; color:#333; font-weight:600; }
+    .cols { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:16px; }
+    .col { flex:1; min-width:220px; }
+    .actions { display:flex; gap:12px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+    .btn {
+      padding:12px 18px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .btn.primary { background:linear-gradient(90deg,#ff6b6b,#ff8b8b); color:white; }
+    .btn.ghost { background:transparent; border:2px solid #ddd; color:#333; }
+    .small { font-size:13px; color:#666; margin-top:8px; }
+    @media(max-width:700px){ .cols{flex-direction:column} .summary{max-height:300px} }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="check">✔</div>
+    <h1>დაგვიკავშირდით — თქვენი დაჯავშნა მიღებულია!</h1>
+    <p class="lead">მადლობა! ჩვენ თვალყურს მივადევნებთ თქვენს შეკვეთას და დავუკავშირდებით მალე.</p>
+
+    <div id="orderSummary" class="summary">
+      <h4>დეტალები</h4>
+      <div id="summaryContent">
+        <!-- JS will inject order details here -->
+        <p class="small">მიმდინარეობს მონაცემების რიცხვი...</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="copyBtn">კოპირება ტექსტად</button>
+      <button class="btn ghost" id="emailBtn">წერილი მენეჯერისთვის</button>
+      <a class="btn" href="index.html" style="background:#f3f4f6;border-radius:12px;">უკან მთავარში</a>
+    </div>
+
+    <p class="small">მენეჯერი დაგიკავშირდებათ ამ ნომერზე: <strong>598 881 919</strong></p>
+  </div>
+
+<script>
+(function(){
+  // helper to get multi values (form used GET)
+  function getAll(name) {
+    // name used with [] e.g. heroes[]
+    const params = new URLSearchParams(location.search);
+    return params.getAll(name);
+  }
+  function get(name){
+    const params = new URLSearchParams(location.search);
+    return params.get(name) || '';
+  }
+
+  // get data
+  const eventName = decodeURIComponent(get('event_name') || '');
+  const childInfo = decodeURIComponent(get('child_info') || '');
+  const date = get('date') || '';
+  const time = get('time') || '';
+  const duration = get('duration') || '';
+  const count = get('count') || '';
+  const notes = decodeURIComponent(get('notes') || '');
+  const phone = decodeURIComponent(get('phone') || '');
+
+  const heroes = getAll('heroes[]');
+  const foods = getAll('foods[]');
+  const drinks = getAll('drinks[]');
+
+  // build summary text and HTML
+  let textLines = [];
+  let html = '';
+
+  textLines.push('KidsLand — ახალი დაჯავშნა');
+  if(eventName){ textLines.push('ღონისძიების სახელი: ' + eventName); html += '<p><strong>ღონისძიების სახელი:</strong> ' + escapeHtml(eventName) + '</p>'; }
+  if(childInfo){ textLines.push('ბავშვი: ' + childInfo); html += '<p><strong>ბავშვი:</strong> ' + escapeHtml(childInfo) + '</p>'; }
+  if(date){ textLines.push('თარიღი: ' + date + ' ' + time); html += '<p><strong>თარიღი:</strong> ' + escapeHtml(date + ' ' + time) + '</p>'; }
+  if(duration){ textLines.push('ხანგრძლობა: ' + duration); html += '<p><strong>ხანგრძლობა:</strong> ' + escapeHtml(duration) + '</p>'; }
+  if(count){ textLines.push('რაოდენობა (ბავშვები): ' + count); html += '<p><strong>რაოდენობა (ბავშვები):</strong> ' + escapeHtml(count) + '</p>'; }
+
+  if(heroes && heroes.length){
+    textLines.push('\\n-- გმირები --');
+    html += '<h4>გმირები</h4><ul>';
+    heroes.forEach(h=>{
+      textLines.push('- ' + h);
+      html += '<li>' + escapeHtml(h) + '</li>';
+    });
+    html += '</ul>';
+  }
+
+  if(foods && foods.length){
+    textLines.push('\\n-- საკვები --');
+    html += '<h4>საკვები</h4><ul>';
+    foods.forEach(f=>{
+      textLines.push('- ' + f);
+      html += '<li>' + escapeHtml(f) + '</li>';
+    });
+    html += '</ul>';
+  }
+
+  if(drinks && drinks.length){
+    textLines.push('\\n-- სასმელები --');
+    html += '<h4>სასმელები</h4><ul>';
+    drinks.forEach(d=>{
+      textLines.push('- ' + d);
+      html += '<li>' + escapeHtml(d) + '</li>';
+    });
+    html += '</ul>';
+  }
+
+  if(notes){
+    textLines.push('\\nკომენტარი: ' + notes);
+    html += '<p><strong>კომენტარი:</strong> ' + escapeHtml(notes) + '</p>';
+  }
+  if(phone){
+    textLines.push('ტელ: ' + phone);
+    html += '<p><strong>ტელეფონი:</strong> ' + escapeHtml(phone) + '</p>';
+  }
+
+  // show
+  const container = document.getElementById('summaryContent');
+  container.innerHTML = html || '<p class="small">ნაღდი ინფორმაცია არ იშოვა.</p>';
+
+  const summaryText = textLines.join('\\n');
+
+  // copy and email buttons
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    navigator.clipboard.writeText(summaryText).then(()=>{
+      this.textContent = 'ნაკრებისთვის არჩეული კოპირდა';
+      setTimeout(()=> this.textContent = 'კოპირება ტექსტად', 2200);
+    }).catch(()=> alert('კოპირება ვერ მოხერხდა'));
+  });
+
+  document.getElementById('emailBtn').addEventListener('click', function(){
+    const subject = encodeURIComponent('KidsLand — ახალი დაჯავშნა: ' + (eventName || ''));
+    const body = encodeURIComponent(summaryText + '\\n\\n' + 'მობ.: 598 881 919');
+    window.location.href = 'mailto:shakosvanidze0@gmail.com?subject=' + subject + '&body=' + body;
+  });
+
+  // escape for HTML
+  function escapeHtml(s){
+    if(!s) return '';
+    return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+  }
+
+})();
+</script>
+</body>
+</html>
